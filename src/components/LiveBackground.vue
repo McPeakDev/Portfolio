@@ -26,7 +26,7 @@
           ref="torus"
         >
           <PhysicalMaterial
-            color="#cf1500"
+            :color="state.color"
             :props="{
               emissive: '#000000',
               specularIntensity: 1,
@@ -56,8 +56,8 @@ import {
   RenderPass,
   BokehPass,
 } from "troisjs";
-import { onMounted, ref} from "@vue/runtime-core";
-import type { Ref} from "vue";
+import { onMounted, ref, reactive } from "@vue/runtime-core";
+import type { Ref } from "vue";
 
 export default {
   components: {
@@ -75,6 +75,13 @@ export default {
   setup() {
     const renderer: Ref<typeof Renderer | null> = ref(null);
     const torus: Ref<typeof TorusKnot | null> = ref(null);
+    const state = reactive({
+      color: "#cf1500"
+    });
+
+    let timer = 0;
+    let code = "";
+
 
     onMounted(() => {
       renderer.value?.onBeforeRender(() => {
@@ -82,9 +89,23 @@ export default {
           torus.value.mesh.rotation.z += 0.01;
         }
       });
+
+      document.addEventListener('keydown', (event: KeyboardEvent) => {
+        clearTimeout(timer);
+        
+        if(event.shiftKey === false || event.code === "Digit3") {
+          code += event.key;
+        }
+
+        if(code.length === 7 && code.includes("#")){
+          state.color = code;
+        }
+
+        timer = setTimeout(() => code = "", 1000);
+      });
     });
 
-    return {renderer, torus };
+    return { state, renderer, torus };
   },
 };
 </script>

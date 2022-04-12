@@ -19,8 +19,7 @@ export default {
 </script>
 
 <style>
-
-body{
+body {
   margin: 0;
 }
 
@@ -35,8 +34,8 @@ body{
   right: 0;
   bottom: 0;
   position: absolute;
-  font-family: "Permanent Marker", cursive;
-  color: transparent;
+  font-family: "Orbitron", sans-serif;
+  color: white;
   animation: 5s ease-out 0s 1 fade-in;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;

@@ -3,8 +3,6 @@
     <div class="container">
       <div class="flexContainer">
         <p class="option floating" @click="setSelected('about')">Resume</p>
-      </div>
-      <div class="flexContainer">
         <p class="option floating" @click="setSelected('github')">GitHub</p>
         <p class="option floating" @click="setSelected('linkedin')">LinkedIn</p>
       </div>
@@ -39,11 +37,11 @@ export default {
 <style scoped>
 .flexContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
   color: white;
   font-size: 40px;
-  height: 50vh;
+  height: 100vh;
   align-items: center;
 }
 
@@ -58,7 +56,7 @@ body {
 }
 
 .option {
-  font-family: "Permanent Marker", cursive;
+  font-family: "Orbitron", sans-serif;
   font-size: 80px;
   color: transparent;
   transition: color 1s ease-in-out;
