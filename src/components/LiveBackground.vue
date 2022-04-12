@@ -56,36 +56,35 @@ import {
   RenderPass,
   BokehPass,
 } from "troisjs";
-import { onMounted, ref } from "@vue/runtime-core";
-import type { Ref } from "vue";
+import { onMounted, ref} from "@vue/runtime-core";
+import type { Ref} from "vue";
 
 export default {
   components: {
-    TorusKnot,
     Camera,
     PhysicalMaterial,
     AmbientLight,
-    PointLight,
     Renderer,
     Scene,
+    TorusKnot,
+    PointLight,
     EffectComposer,
     RenderPass,
     BokehPass,
   },
   setup() {
-    const n: Ref<number> = ref(45);
     const renderer: Ref<typeof Renderer | null> = ref(null);
     const torus: Ref<typeof TorusKnot | null> = ref(null);
 
     onMounted(() => {
       renderer.value?.onBeforeRender(() => {
         if (torus.value !== null) {
-          torus.value.rotation.z += 0.005;
+          torus.value.mesh.rotation.z += 0.01;
         }
       });
     });
 
-    return { n, renderer, torus };
+    return {renderer, torus };
   },
 };
 </script>
