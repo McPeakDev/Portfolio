@@ -56,8 +56,8 @@ import {
   RenderPass,
   BokehPass,
 } from "troisjs";
-import { onMounted } from "@vue/runtime-core";
-import { Ref, ref } from "vue";
+import { onMounted, ref } from "@vue/runtime-core";
+import type { Ref } from "vue";
 
 export default {
   components: {

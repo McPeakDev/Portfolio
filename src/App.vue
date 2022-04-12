@@ -19,6 +19,11 @@ export default {
 </script>
 
 <style>
+
+body{
+  margin: 0;
+}
+
 .background {
   position: absolute;
   z-index: -1;
