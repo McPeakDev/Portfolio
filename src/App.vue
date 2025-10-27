@@ -13,12 +13,16 @@ const api = useAPI()
 
 const config = ref<Config>()
 
+const loading = ref(true)
+
 onBeforeMount(async () => {
   const response = await api.getConfig()
 
   if (response) {
     config.value = response
   }
+
+  loading.value = false
 })
 </script>
 
@@ -36,7 +40,10 @@ onBeforeMount(async () => {
     </div>
     <AppFooter v-bind="config" />
   </div>
-  <div v-else class="mr-6 text-center transition duration-200 ease-in-out hover:text-emerald-500">
+  <div
+    v-else-if="!loading"
+    class="mr-6 text-center transition duration-200 ease-in-out hover:text-emerald-500"
+  >
     <p>Error: Please setup the config file first.</p>
   </div>
 </template>
