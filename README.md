@@ -9,7 +9,7 @@ This will require some information to be placed in a `config.json` file that wil
 #### Available parameters currently are the following
 
 - github_username - Required
-- linked_in_url - Optional
+- linked_in_url - Required
 - extended_bio - Optional
 - email - Optional
 - phone_number - Optional
@@ -18,10 +18,10 @@ Here is a fully fleshed out config.json
 
 ```json
 {
-  "github_username": "someone",
-  "linked_in_url": "https://www.linkedin.com/in/someone/",
-  "extended_bio": "Lorem Ipsum",
+  "githubUsername": "someone",
+  "linkedInURL": "https://www.linkedin.com/in/someone/",
+  "extendedBio": "Lorem Ipsum",
   "email": "some.email@email.com",
-  "phone_number": "123-456-7890"
+  "phoneNumber": "123-456-7890"
 }
 ```
